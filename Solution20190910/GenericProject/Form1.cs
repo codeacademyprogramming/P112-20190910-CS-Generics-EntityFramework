@@ -77,26 +77,26 @@ namespace GenericProject
 
           
 
-            Stack myStack = new Stack();
-            myStack.Push("Hello!!");
-            myStack.Push(0);
-            myStack.Push(1);
-            myStack.Push(2);
-            myStack.Push(null);
-            myStack.Push(4);
-            myStack.Push(5);
+            //Stack myStack = new Stack();
+            //myStack.Push("Hello!!");
+            //myStack.Push(0);
+            //myStack.Push(1);
+            //myStack.Push(2);
+            //myStack.Push(null);
+            //myStack.Push(4);
+            //myStack.Push(5);
 
-            try
-            {
-                foreach (var itm in myStack)
-                {
-                    MessageBox.Show(itm.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    foreach (var itm in myStack)
+            //    {
+            //        MessageBox.Show(itm.ToString());
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
            
 
         }

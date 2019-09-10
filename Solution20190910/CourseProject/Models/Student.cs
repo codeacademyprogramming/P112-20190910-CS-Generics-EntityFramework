@@ -18,6 +18,7 @@ namespace CourseProject.Models
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }
+        public Nullable<System.DateTime> Birthdate { get; set; }
         public Nullable<int> GroupId { get; set; }
     
         public virtual Group Group { get; set; }

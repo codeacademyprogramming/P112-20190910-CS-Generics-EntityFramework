@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="P112CourseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="P112CourseModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Classrooms">
           <Key>
             <PropertyRef Name="Id" />
@@ -56,7 +56,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="P112CourseModelStoreContainer">
+        <EntityContainer Name="P112CourseModel1StoreContainer">
           <EntitySet Name="Classrooms" EntityType="Self.Classrooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
@@ -69,10 +69,11 @@
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="P112CourseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="P112CourseModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Classroom">
           <Key>
             <PropertyRef Name="Id" />
@@ -100,9 +101,9 @@
           <Property Name="Firstname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Lastname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Birthdate" Type="DateTime" Precision="3" />
           <Property Name="GroupId" Type="Int32" />
           <NavigationProperty Name="Group" Relationship="Self.FK_Students_Groups" FromRole="Students" ToRole="Groups" />
-          <Property Name="Birthdate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Groups_Classrooms">
           <End Role="Classrooms" Type="Self.Classroom" Multiplicity="0..1" />
@@ -128,7 +129,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="P112CourseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="P112CourseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classrooms" EntityType="Self.Classroom" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
           <EntitySet Name="Students" EntityType="Self.Student" />
@@ -146,9 +147,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="P112CourseModelStoreContainer" CdmEntityContainer="P112CourseEntities">
+        <EntityContainerMapping StorageEntityContainer="P112CourseModel1StoreContainer" CdmEntityContainer="P112CourseEntities1">
           <EntitySetMapping Name="Classrooms">
-            <EntityTypeMapping TypeName="P112CourseModel.Classroom">
+            <EntityTypeMapping TypeName="P112CourseModel1.Classroom">
               <MappingFragment StoreEntitySet="Classrooms">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -157,7 +158,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="P112CourseModel.Group">
+            <EntityTypeMapping TypeName="P112CourseModel1.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -166,13 +167,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="P112CourseModel.Student">
+            <EntityTypeMapping TypeName="P112CourseModel1.Student">
               <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Firstname" ColumnName="Firstname" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
               </MappingFragment>
             </EntityTypeMapping>
